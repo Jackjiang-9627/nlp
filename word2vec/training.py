@@ -96,13 +96,13 @@ def run(vocab_file, output_dir, train_file, batch_size=1000,
     # 4. 保存单词映射以及embedding_table
     vocab.save(os.path.join(output_dir, 'vocab.pkl'))
     with open(os.path.join(output_dir, 'embedding_table.pkl'), 'wb') as writer:
-        pickle.dump(net.weight.detach().numpy(), writer)
+        pickle.dump(net.weight.to('cpu').detach().numpy(), writer)
 
 
 if __name__ == '__main__':
     run(
         vocab_file='./output/datas/vocab.pkl',
         output_dir='./output',
-        train_file='./output/datas/人民的名义_training.txt',
+        train_file='./output/datas/红楼梦_training.txt',
         total_epoch=5
     )

@@ -66,7 +66,7 @@ class CBOWModule(Word2Vec):
         :param y: [N] N 表示批次大小，内部存储的是每个样本对应的中心词的id
         :return:
         """
-        # 对参数weight进行l2-norm转换
+        # 对参数weight进行l2-norm转换，将每个token的embedding向量的每个元素除以该token的l2范数
         norm_weight = F.normalize(self.weight, p=2, dim=1)
 
         # embedding layer
@@ -78,6 +78,7 @@ class CBOWModule(Word2Vec):
 
         # 负采样
         # 将标签转换为正样本标签
+        y = y.to('cpu')
         positive_labels = y.detach().numpy()
         # 随机选择k个值（不等比例产生数据）
         negative_labels = random_negative_labels(
@@ -91,9 +92,9 @@ class CBOWModule(Word2Vec):
         positive_scores = torch.sum(x * positive_weights, dim=1, keepdim=True)  # [N, E] * [N, E] --> [N, E] -->[N, 1]
         negative_scores = torch.matmul(x, negative_weights.T)  # [N, E] @ [E, ?k] --> [N, ?K]
         # 合并置信度, 第一列就是正样本的置信度
-        scores = torch.concat([positive_scores, negative_scores], dim=1)  # [N, 1] [N, ?k] --> [N, 1+?k]
+        scores = torch.concat([positive_scores, negative_scores], dim=1).to('cuda')  # [N, 1] [N, ?k] --> [N, 1+?k]
         # 构建“实际标签”
-        target = torch.zeros(scores.shape[0], dtype=torch.long)
+        target = torch.zeros(scores.shape[0], dtype=torch.long).to('cuda')
         # 计算损失
         loss = self.loss_fn(scores, target)
         return loss
