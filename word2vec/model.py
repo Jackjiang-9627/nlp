@@ -35,7 +35,7 @@ def random_negative_labels(positive_labels, num_negative_label, all_labels, nega
 class Word2Vec(nn.Module):
     def __init__(self, num_embeddings, embedding_dim, k=5, all_label_weights=None):
         """
-        初始化方法
+        构建Word2Vec模型的父类，子类为CBOWModule和SkipGramModule
         :param num_embeddings: 词汇表大小
         :param embedding_dim: 词向量维度大小
         :param k: 负采样的样本大小
@@ -55,7 +55,8 @@ class Word2Vec(nn.Module):
         self.all_labels = np.arange(self.vocab_size)
         # 正常情况下，这个所有标签/单词对应的权重就是单词的词频，一般情况下外部统计
         self.all_label_weights = all_label_weights
-        self.negative_over_positive = False  # 产生负样本标签的时候，产生的数量是否加上正样本的标签数量
+        # 产生负样本标签的时候，产生的数量是否加上正样本的标签数量
+        self.negative_over_positive = False
 
 
 class CBOWModule(Word2Vec):
