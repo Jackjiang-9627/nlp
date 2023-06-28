@@ -13,13 +13,16 @@ from word2vec.model import SkipGramModule, CBOWModule
 
 def restore_network(net, model_dir):
     if not os.path.exists(model_dir):
-        return 0  # 训练还未开始
-    files = os.listdir(model_dir)
-    files.sort()
+        return 0  # model_dir目录下没有文件，训练还未开始
+    files = os.listdir(model_dir)  # 获取model_dir目录下的文件，以列表返回文件名
+    files.sort()  # 升序排列文件名
     if len(files) == 0:
         return 0
+    # 获取最后一个模型文件的完整路径
     file = os.path.join(model_dir, files[-1])
+    # 加载恢复模型
     ckpt = torch.load(file, map_location='cpu')
+    # 加载恢复model
     net.load_state_dict(ckpt['model'].state_dict())
     return ckpt['epoch'] + 1
 
@@ -27,9 +30,17 @@ def restore_network(net, model_dir):
 def run(vocab_file, output_dir, train_file, batch_size=1000,
         cbow=True, embedding_dim=128, num_negative_sample=20,
         total_epoch=10, save_internal_epoch=1):
+    """
+    vocab_file:词表路径
+    output_dir：模型保存目录
+    train_file：训练数据文件路径，用于构造数据集
+    cbow：True表示采用CBOW模型，False表示采用SkipGram模型
+    total_epoch：一共训练10个epoch
+    save_internal_epoch：间隔1个epoch保存一次
+    """
     # 0. 属性准备
     vocab = Vocab.load(vocab_file)
-    output_model_dir = os.path.join(output_dir, 'model')  # 目录
+    output_model_dir = os.path.join(output_dir, 'model')  # 模型保存的目录
     creat_dir(output_model_dir)
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
@@ -52,6 +63,7 @@ def run(vocab_file, output_dir, train_file, batch_size=1000,
     ).to(device)
 
     train_op = optim.SGD(net.parameters(), lr=0.1, weight_decay=0.01)
+    # 如果程序意外停止，模型从保存文件中恢复，程序会自动计算新的start_epoch
     start_epoch = restore_network(net, model_dir=output_model_dir)
 
     # 3. 迭代训练
@@ -62,9 +74,10 @@ def run(vocab_file, output_dir, train_file, batch_size=1000,
         # 训练
         net.train()
         for context_words, central_words in dataloader:
+            # 将数据转移到device上，数据要在同一类型的设备上， 不能模型参数在gpu，输入数据在cpu，会报错
             context_words = context_words.to(device)
             central_words = central_words.to(device)
-            # 前向过程
+            # 前向过程，计算损失
             loss = net(context_words, central_words)
             # 反向
             train_op.zero_grad()
@@ -91,10 +104,11 @@ def run(vocab_file, output_dir, train_file, batch_size=1000,
         if (epoch % save_internal_epoch == 0) or epoch == total_epoch - 1:
             torch.save(
                 obj={'model': net, 'epoch': epoch},
-                f=os.path.join(output_dir, f'model_{epoch:04d}.pkl')
+                f=os.path.join(output_model_dir, f'model_{epoch:04d}.pkl')
             )
-    # 4. 保存单词映射以及embedding_table
+    # 4. 保存词表
     vocab.save(os.path.join(output_dir, 'vocab.pkl'))
+    # 保存embedding层的权重矩阵即embedding_table
     with open(os.path.join(output_dir, 'embedding_table.pkl'), 'wb') as writer:
         pickle.dump(net.weight.to('cpu').detach().numpy(), writer)
 
@@ -104,5 +118,5 @@ if __name__ == '__main__':
         vocab_file='./output/datas/vocab.pkl',
         output_dir='./output',
         train_file='./output/datas/红楼梦_training.txt',
-        total_epoch=5
+        total_epoch=10
     )

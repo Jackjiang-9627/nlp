@@ -1,0 +1,164 @@
+Index: word2vec/training.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/word2vec/training.py b/word2vec/training.py
+new file mode 100644
+--- /dev/null	(date 1685522817527)
++++ b/word2vec/training.py	(date 1685522817527)
+@@ -0,0 +1,108 @@
++"""
++模型训练相关代码
++"""
++import os.path
++import pickle
++
++import torch
++from torch import optim
++from torch.utils.data import DataLoader
++
++from word2vec.data_process import Vocab, creat_dir, Word2VecDataset
++from word2vec.model import SkipGramModule, CBOWModule
++
++def restore_network(net, model_dir):
++    if not os.path.exists(model_dir):
++        return 0  # 训练还未开始
++    files = os.listdir(model_dir)
++    files.sort()
++    if len(files) == 0:
++        return 0
++    file = os.path.join(model_dir, files[-1])
++    ckpt = torch.load(file, map_location='cpu')
++    net.load_state_dict(ckpt['model'].state_dict())
++    return ckpt['epoch'] + 1
++
++
++def run(vocab_file, output_dir, train_file, batch_size=1000,
++        cbow=True, embedding_dim=128, num_negative_sample=20,
++        total_epoch=10, save_internal_epoch=1):
++    # 0. 属性准备
++    vocab = Vocab.load(vocab_file)
++    output_model_dir = os.path.join(output_dir, 'model')  # 目录
++    creat_dir(output_model_dir)
++    device = 'cuda' if torch.cuda.is_available() else 'cpu'
++
++    # 1.数据构建
++    dataset = Word2VecDataset(train_file)
++    dataloader = DataLoader(
++        dataset=dataset,
++        batch_size=batch_size,
++        shuffle=True,
++        num_workers=0,  # 给定底层使用几个线程进行数据加载，0表示使用训练程序这个主线程进行加载
++        collate_fn=None  # 给定如何将多个样本组合成一个批次对象，默认一般情况下不需要给定
++    )
++    # 2. 模型对象、损失函数、优化器
++    model_class = CBOWModule if cbow else SkipGramModule
++    net = model_class(
++        num_embeddings=len(vocab),
++        embedding_dim=embedding_dim,
++        k=num_negative_sample,
++        all_label_weights=vocab.fetch_negative_sampling_token_frequency()
++    ).to(device)
++
++    train_op = optim.SGD(net.parameters(), lr=0.1, weight_decay=0.01)
++    start_epoch = restore_network(net, model_dir=output_model_dir)
++
++    # 3. 迭代训练
++    batch_idx = 0
++    # total_epoch = total_epoch + start_epoch  # todo:?
++
++    for epoch in range(start_epoch, total_epoch):
++        # 训练
++        net.train()
++        for context_words, central_words in dataloader:
++            context_words = context_words.to(device)
++            central_words = central_words.to(device)
++            # 前向过程
++            loss = net(context_words, central_words)
++            # 反向
++            train_op.zero_grad()
++            loss.backward()
++            train_op.step()
++            # 日志打印
++            if batch_idx % 100 == 0:
++                print(f'Epoch:{epoch}/{total_epoch} Batch:{batch_idx} Train Loss:{loss.item():.3f}')
++            batch_idx += 1
++        # 评估
++        eval_batch = 0
++        net.eval()
++        for context_words, central_words in dataloader:
++            context_words = context_words.to(device)
++            central_words = central_words.to(device)
++            loss = net(context_words, central_words, negative_sampling=False)
++            # 日志打印
++            print(f'Epoch:{epoch}/{total_epoch} Batch:{batch_idx} Eval Loss:{loss.item():.3f}')
++            eval_batch += 1
++            if eval_batch > 20:
++                break
++
++        # 模型保存
++        if (epoch % save_internal_epoch == 0) or epoch == total_epoch - 1:
++            torch.save(
++                obj={'model': net, 'epoch': epoch},
++                f=os.path.join(output_dir, f'model_{epoch:04d}.pkl')
++            )
++    # 4. 保存单词映射以及embedding_table
++    vocab.save(os.path.join(output_dir, 'vocab.pkl'))
++    with open(os.path.join(output_dir, 'embedding_table.pkl'), 'wb') as writer:
++        pickle.dump(net.weight.detach().numpy(), writer)
++
++
++if __name__ == '__main__':
++    run(
++        vocab_file='./output/datas/vocab.pkl',
++        output_dir='./output',
++        train_file='./output/datas/人民的名义_training.txt',
++        total_epoch=5
++    )
+Index: word2vec/笔记.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/word2vec/笔记.txt b/word2vec/笔记.txt
+new file mode 100644
+--- /dev/null	(date 1685415911022)
++++ b/word2vec/笔记.txt	(date 1685415911022)
+@@ -0,0 +1,10 @@
++目的：实现Word2Vec的训练模型，并产生最终的词向量embedding_table数据，方便其它NLP模型引用
++步骤：
++    1、数据解析处理
++        文本分词：将文本转换成单词
++        构建一个单词到id的映射表 ---> 构建一个完整的独立的词典对象
++        构建训练数据(和模型相关)
++            NOTE: 窗口大小固定为5(1中心词 + 4周边词)
++    2、模型结构构建
++        CBOW、SkipGram、负采样等相关内容
++    3、训练相关代码的撰写
+\ No newline at end of file
+Index: word2vec/Word2Vec.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/word2vec/Word2Vec.md b/word2vec/Word2Vec.md
+new file mode 100644
+--- /dev/null	(date 1687945049880)
++++ b/word2vec/Word2Vec.md	(date 1687945049880)
+@@ -0,0 +1,15 @@
++目的：实现Word2Vec的训练模型，并产生最终的词向量embedding_table数据，方便其它NLP模型引用
++步骤：
++
++1. 数据解析处理
++   1. 文本分词：将文本转换为单词
++   2. 构建一个单词到id的映射表（构建一个完整的词典对象）
++   3. 构建训练数据（与模型相关）窗口大小决定训练数据的长度
++
++      窗口大小固定为5(1中心词 + 4周边词)
++   4. 模型结构构建
++
++      1. CBOW
++      2. SkipGram
++      3. 负采样：当上面两个模型的vocab规模较大且计算资源有限时，训练过程会受输出层概率归一化计算效率的影响。负采样将问题简化为对于(w, c)d的二元分类问题（共现或者非共现），规避了大词表的归一化计算。
++   5. 训练

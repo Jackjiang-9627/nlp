@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="838208ff-9434-4e8c-8353-fae18786a9d1" name="变更" comment="">
+      <change beforePath="$PROJECT_DIR$/word2vec/Word2Vec.md" beforeDir="false" afterPath="$PROJECT_DIR$/word2vec/Word2Vec.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/word2vec/output/embedding_table.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/word2vec/output/embedding_table.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/word2vec/output/model_0000.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/word2vec/output/model_0001.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/word2vec/output/model_0002.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/word2vec/output/model_0003.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/word2vec/output/model_0004.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/word2vec/training.py" beforeDir="false" afterPath="$PROJECT_DIR$/word2vec/training.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="jackjiang &lt;28810274@qq.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="6c5d5919-9051-4508-af14-89f8fe325a32" />
+        <option name="url" value="git@github.com:Jackjiang-9627/nlp.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="ProjectId" id="2Rp7x9ofd0olahO5I9wLqopfYvz" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="P:\workspaces\nlp" />
+      <recent name="P:\workspaces\nlp\word2vec\datas" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.training">
+    <configuration name="data_process" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="nlp" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/word2vec" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/word2vec/data_process.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="nlp" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/word2vec" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/word2vec/model.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="training" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="nlp" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/word2vec" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/word2vec/training.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.training" />
+        <item itemvalue="Python.model" />
+        <item itemvalue="Python.data_process" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="838208ff-9434-4e8c-8353-fae18786a9d1" name="变更" comment="" />
+      <created>1687935414485</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1687935414485</updated>
+      <workItem from="1687935416242" duration="15731000" />
+    </task>
+    <task id="LOCAL-00001" summary="测试">
+      <created>1687935524933</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687935524933</updated>
+    </task>
+    <task id="LOCAL-00002" summary="提交意图识别项目！">
+      <created>1687935706669</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1687935706669</updated>
+    </task>
+    <task id="LOCAL-00003" summary="提交命名实体识别项目！">
+      <created>1687936311722</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1687936311722</updated>
+    </task>
+    <task id="LOCAL-00004" summary="修改CNER文件名为cner！">
+      <created>1687936604376</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687936604376</updated>
+    </task>
+    <task id="LOCAL-00005" summary="提交word2vec项目！">
+      <created>1687936854294</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687936854294</updated>
+    </task>
+    <task id="LOCAL-00006" summary="删除cner项目！">
+      <created>1687937073284</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1687937073284</updated>
+    </task>
+    <task id="LOCAL-00007" summary="删除所有项目！">
+      <created>1687937167316</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1687937167316</updated>
+    </task>
+    <task id="LOCAL-00008" summary="删除所有项目！">
+      <created>1687937268987</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1687937268987</updated>
+    </task>
+    <task id="LOCAL-00009" summary="添加NLP-环境搭建.md文件！">
+      <created>1687938878624</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1687938878624</updated>
+    </task>
+    <task id="LOCAL-00010" summary="添加NLP-环境搭建.md文件！">
+      <created>1687945131617</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1687945131617</updated>
+    </task>
+    <task id="LOCAL-00011" summary="添加model.py、training.py文件，更新word2vec.md内容">
+      <created>1687946186332</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1687946186332</updated>
+    </task>
+    <task id="LOCAL-00012" summary="添加训练好的模型文件和vocab，可用于其它nlp任务">
+      <created>1687947990007</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1687947990007</updated>
+    </task>
+    <task id="LOCAL-00013" summary="添加训练好的模型文件和vocab，可用于其它nlp任务">
+      <created>1687948016870</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1687948016870</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="测试" />
+    <MESSAGE value="提交意图识别项目！" />
+    <MESSAGE value="提交命名实体识别项目！" />
+    <MESSAGE value="修改CNER文件名为cner！" />
+    <MESSAGE value="提交word2vec项目！" />
+    <MESSAGE value="删除cner项目！" />
+    <MESSAGE value="删除所有项目！" />
+    <MESSAGE value="添加data_process.py文件，完成红楼梦txt文件的数据处理，生成词汇表vocab和训练数据！" />
+    <MESSAGE value="添加model.py、training.py文件，更新word2vec.md内容" />
+    <MESSAGE value="添加训练好的模型文件和vocab，可用于其它nlp任务" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加训练好的模型文件和vocab，可用于其它nlp任务" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/word2vec/model.py</url>
+          <line>73</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/word2vec/model.py</url>
+          <line>76</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/word2vec/training.py</url>
+          <line>72</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="norm_weight.shape" language="Python" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/nlp$data_process.coverage" NAME="data_process 覆盖结果" MODIFIED="1687944088490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/word2vec" />
+    <SUITE FILE_PATH="coverage/nlp$training.coverage" NAME="training 覆盖结果" MODIFIED="1687957268146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/word2vec" />
+    <SUITE FILE_PATH="coverage/nlp$model.coverage" NAME="model 覆盖结果" MODIFIED="1687955097807" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/word2vec" />
+  </component>
+</project>
