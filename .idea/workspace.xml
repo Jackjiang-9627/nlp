@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="838208ff-9434-4e8c-8353-fae18786a9d1" name="变更" comment="">
+    <list default="true" id="838208ff-9434-4e8c-8353-fae18786a9d1" name="变更" comment="修改training部分代码">
+      <change afterPath="$PROJECT_DIR$/intention_identification/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/intention_identification/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/intention_identification/dataloader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/intention_identification/datas/jieba_words.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/intention_identification/datas/original/test.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/intention_identification/datas/original/train.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/intention_identification/datas/stop_words.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/intention_identification/metrics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/intention_identification/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/intention_identification/models/model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/intention_identification/preprocess.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/intention_identification/train.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/intention_identification/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/word2vec/Word2Vec.md" beforeDir="false" afterPath="$PROJECT_DIR$/word2vec/Word2Vec.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/word2vec/output/embedding_table.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/word2vec/output/embedding_table.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/word2vec/output/model_0000.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/word2vec/output/model_0001.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/word2vec/output/model_0002.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/word2vec/output/model_0003.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/word2vec/output/model_0004.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/word2vec/training.py" beforeDir="false" afterPath="$PROJECT_DIR$/word2vec/training.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -32,6 +47,9 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2Rp7x9ofd0olahO5I9wLqopfYvz" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -47,11 +65,21 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="P:\workspaces\nlp\intention_identification\datas\original" />
+      <recent name="P:\workspaces\nlp\intention_identification\datas" />
+      <recent name="P:\workspaces\nlp\word2vec1" />
       <recent name="P:\workspaces\nlp" />
       <recent name="P:\workspaces\nlp\word2vec\datas" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="P:\workspaces\nlp\intention_identification\datas" />
+      <recent name="P:\workspaces\nlp\intention_identification\datas\original" />
+      <recent name="P:\workspaces\nlp\word2vec1\datas\original_datas" />
+      <recent name="P:\workspaces\nlp\word2vec1\datas" />
+      <recent name="P:\workspaces\nlp" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.training">
+  <component name="RunManager" selected="Python.preprocess">
     <configuration name="data_process" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="nlp" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -96,6 +124,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="preprocess" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="nlp" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/word2vec1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/word2vec1/preprocess.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="training" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="nlp" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -120,6 +170,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.preprocess" />
         <item itemvalue="Python.training" />
         <item itemvalue="Python.model" />
         <item itemvalue="Python.data_process" />
@@ -134,7 +185,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1687935414485</updated>
-      <workItem from="1687935416242" duration="15731000" />
+      <workItem from="1687935416242" duration="22670000" />
+      <workItem from="1688137858289" duration="51000" />
+      <workItem from="1688137951357" duration="6000" />
+      <workItem from="1688137983127" duration="236000" />
     </task>
     <task id="LOCAL-00001" summary="测试">
       <created>1687935524933</created>
@@ -227,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687948016870</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="修改training部分代码">
+      <created>1687957633793</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1687957633793</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,21 +316,12 @@
     <MESSAGE value="添加data_process.py文件，完成红楼梦txt文件的数据处理，生成词汇表vocab和训练数据！" />
     <MESSAGE value="添加model.py、training.py文件，更新word2vec.md内容" />
     <MESSAGE value="添加训练好的模型文件和vocab，可用于其它nlp任务" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加训练好的模型文件和vocab，可用于其它nlp任务" />
+    <MESSAGE value="修改training部分代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改training部分代码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/word2vec/model.py</url>
-          <line>73</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/word2vec/model.py</url>
-          <line>76</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/word2vec/training.py</url>
           <line>72</line>
@@ -284,6 +336,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/nlp$preprocess.coverage" NAME="preprocess 覆盖结果" MODIFIED="1687959937085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/word2vec1" />
     <SUITE FILE_PATH="coverage/nlp$data_process.coverage" NAME="data_process 覆盖结果" MODIFIED="1687944088490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/word2vec" />
     <SUITE FILE_PATH="coverage/nlp$training.coverage" NAME="training 覆盖结果" MODIFIED="1687957268146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/word2vec" />
     <SUITE FILE_PATH="coverage/nlp$model.coverage" NAME="model 覆盖结果" MODIFIED="1687955097807" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/word2vec" />
