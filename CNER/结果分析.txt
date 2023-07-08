@@ -1,0 +1,19 @@
+Word2VecLMModule + SoftmaxSeqClassifyModule                      ---> best val f1:21.535  提取终止
+Word2VecLMModule + CRFSeqClassifyModule                          ---> best val f1:69.381  无特征提取层      --> CRF做分类
+BertLMModule + BiLSTMEncoderModule + CRFSeqClassifyModule        ---> best val f1:80.034  BERT-base
+BertLMModule + IDCNNEncoderModule + CRFSeqClassifyModule         ---> best val f1:73.066  IDCNN比BiLSTM差  --> 不用IDCNN
+BertLMModule + RTransformerEncoderModule + CRFSeqClassifyModule  ---> best val f1:78.742  RTransformer比BiLSTM略差  --> BiLSTM做特征提取
+ALBertLMModule + BiLSTMEncoderModule + CRFSeqClassifyModule      ---> best val f1:80.305  ALBert效果比BERT略高
+RoBertaLMModule + BiLSTMEncoderModule + CRFSeqClassifyModule     ---> best val f1:82.763  RoBERTa效果最好
+NEZHALMModule + BiLSTMEncoderModule + CRFSeqClassifyModule       ---> best val f1:82.208  NEZHA效果比BERT高
+-------------------------------------------------------------------------------------------------------------------------------
+最佳模型为：RoBertaLMModule + BiLSTMEncoderModule + CRFSeqClassifyModule
+best val f1:69.381% ---> 82.763% ---> 提升了19.2%
+
+
+
+
+
+
+
+
