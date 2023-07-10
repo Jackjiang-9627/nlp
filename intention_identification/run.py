@@ -1,7 +1,7 @@
 from torch import nn
 from tqdm import tqdm
 
-from intention_identification.train_and_eval import Trainer, Evaluator, Predictor
+from train_and_eval import Trainer, Evaluator, Predictor
 
 
 def training_model():
@@ -67,7 +67,7 @@ def eval_model():
 
 
 def run_app():
-    from intention_identification.app import app
+    from app import app
 
     app.run(
         host="0.0.0.0",

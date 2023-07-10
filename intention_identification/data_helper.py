@@ -11,8 +11,9 @@ from collections import OrderedDict
 from torch.utils.data import Dataset, Sampler
 from torch.utils.data.dataset import T_co
 
-from intention_identification import get_project_absolute_path
+
 # from . import get_project_absolute_path  # __main__中不能使用相对导入
+from nlp.intention_identification import get_project_absolute_path
 from utils import create_file_dir, read_file
 
 jieba.load_userdict(get_project_absolute_path('datas/jieba_words.txt'))  # 注意：此处应该用绝对路径！
@@ -83,7 +84,7 @@ def build_vocab(in_files, out_file, stop_tokens, min_freq, default_tokens, unk_t
     # 1. 第一步构建dict字典
     token_dict = {}  # token以及对应token的词频
     for line in read_file(in_files):
-        line.strip() 
+        line.strip()
         tokens = line.split(' ')
         for token in tokens:
             if token in stop_tokens:  # 过滤停止词
