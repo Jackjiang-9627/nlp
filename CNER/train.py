@@ -1,5 +1,7 @@
 import logging
+import os
 
+import torch
 from tqdm import tqdm
 
 import utils
@@ -60,7 +62,16 @@ def train_and_evaluate(model: NERTokenClassification, optimizer, train_loader, v
     # 训练&验证
     best_val_f1 = 0.0
     stop_counter = 0
-    for epoch in range(1, params.epoch_num + 1):
+    # 断点恢复
+    start_epoch = 1
+    if os.path.exists(params.models_path) and len(os.listdir(params.models_path)) > 0:
+        ckpt = torch.load(os.path.join(params.models_path, 'last.pth'), map_location='cpu')
+        # 模型恢复
+        model.load_state_dict(ckpt['model_state_dict'])
+        optimizer.load_state_dict(ckpt['optimizer_state_dict'])
+        start_epoch = ckpt['epoch'] + 1
+
+    for epoch in range(start_epoch, params.epoch_num + 1):
         logging.info(f"Epoch {epoch}/{params.epoch_num}")
         # Train model
         train_epoch(model, train_loader, optimizer, params)
@@ -73,8 +84,8 @@ def train_and_evaluate(model: NERTokenClassification, optimizer, train_loader, v
         utils.save_checkpoint(
             state={
                 'epoch': epoch,
-                'model': model,
-                'optimizer': optimizer
+                'model_state_dict': model.state_dict(),
+                'optimizer_state_dict': optimizer.state_dict()
             },
             is_best=improve_val_f1 > 0.0,
             checkpoint=params.models_path
